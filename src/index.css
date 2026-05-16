@@ -1,0 +1,290 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ========== Clean Automotive Design System ========== */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f5f7;
+  --bg-dark: #0f1115;
+  --bg-dark-secondary: #1a1c23;
+  
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-inverse: #ffffff;
+  --text-inverse-muted: #a0a0a0;
+  
+  --accent-primary: #005ce6; /* Renault E-Tech Blue */
+  --accent-hover: #0047b3;
+  
+  --border-light: #e5e7eb;
+  --border-dark: #333333;
+  
+  --font-primary: 'Inter', sans-serif;
+}
+
+/* ========== Reset & Base ========== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== Utility Classes ========== */
+.section-padding {
+  padding: 120px 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.title-large {
+  font-family: var(--font-primary);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.title-medium {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Dark Section Utilities */
+.dark-section {
+  background-color: var(--bg-dark);
+  color: var(--text-inverse);
+}
+
+.dark-section .subtitle {
+  color: var(--text-inverse-muted);
+}
+
+/* ========== Elegant Buttons (CSS Simple & Beautiful) ========== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid var(--text-primary);
+  border-radius: 0; /* Sharp corners like Renault */
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--text-inverse);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: -1;
+}
+
+.btn-primary:hover {
+  color: var(--text-primary);
+}
+
+.btn-primary:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid var(--text-primary);
+  border-radius: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: -1;
+}
+
+.btn-secondary:hover {
+  color: var(--text-inverse);
+}
+
+.btn-secondary:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Dark mode buttons adjustments */
+.dark-section .btn-primary {
+  background-color: var(--text-inverse);
+  color: var(--text-primary);
+  border-color: var(--text-inverse);
+}
+.dark-section .btn-primary::before {
+  background-color: var(--text-primary);
+}
+.dark-section .btn-primary:hover {
+  color: var(--text-inverse);
+}
+
+.dark-section .btn-secondary {
+  color: var(--text-inverse);
+  border-color: var(--text-inverse);
+}
+.dark-section .btn-secondary::before {
+  background-color: var(--text-inverse);
+}
+.dark-section .btn-secondary:hover {
+  color: var(--text-primary);
+}
+
+/* Accent Button */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background-color: var(--accent-primary);
+  color: white;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid var(--accent-primary);
+  border-radius: 0;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.btn-accent:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* ========== Cards & Boxes ========== */
+.clean-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.clean-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+/* ========== Custom CSS Animations ========== */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(0, 92, 230, 0.4); }
+  70% { box-shadow: 0 0 0 20px rgba(0, 92, 230, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 92, 230, 0); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* ========== Loading Screen ========== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-bar-container {
+  width: 200px;
+  height: 2px;
+  background: var(--border-light);
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.loading-bar {
+  height: 100%;
+  background: var(--text-primary);
+  transition: width 0.1s ease;
+}
